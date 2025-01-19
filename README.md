@@ -1,4 +1,4 @@
-![ClassicPress Directory Integration Plugin logo](images/banner-772x250.png "ClassicPress Directory Integration Plugin")
+![TSW Basic Info Toll logo](images/banner-772x250.png "ClassicPress Directory Integration Plugin")
 
 # Basic Info Tool
 

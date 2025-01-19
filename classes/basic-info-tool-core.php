@@ -41,9 +41,9 @@ class Basic_Info_Tool_Core {
 	 */
 	public static function basic_debug_info( $html = true ) {
 		global $wp_version, $wpdb, $wp_scripts;
-		$servagent   = ( null!==( sanitize_key($_SERVER['HTTP_USER_AGENT']))) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$servagent   = ( ''!=( sanitize_key($_SERVER['HTTP_USER_AGENT']))) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 						? wp_unslash(sanitize_key$_SERVER['HTTP_USER_AGENT'])) : null; 
-		$servsoft    = ( null!==(sanitize_key($_SERVER['SERVER_SOFTWARE']))) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$servsoft    = ( ''!=(sanitize_key($_SERVER['SERVER_SOFTWARE']))) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 						? wp_unslash(sanitize_key$_SERVER['SERVER_SOFTWARE'])) : null; 
 		$wp          = $wp_version;
 		$php         = phpversion();
