@@ -49,10 +49,9 @@ class Basic_Info_Tool_Core {
 		$theme         = wp_get_theme( $stylesheet );
 		$theme_name    = $theme->get( 'Name' );
 		$theme_version = $theme->get( 'Version' );
-		$serverSware   = null !== ( wp_unslash( esc_attr($_SERVER['SERVER_SOFTWARE']) ))
-						? wp_unslash( esc_attr($_SERVER['SERVER_SOFTWARE'])) : esc_html('undefined');
-		$serverAgnt    = null !== ( wp_unslash( esc_attr($_SERVER['HTTP_USER_AGENT']) ))
-						? wp_unslash( esc_attr($_SERVER['HTTP_USER_AGENT'])) : esc_html('undefined');
+		$user_browser  = esc_attr($_SERVER['HTTP_USER_AGENT']);
+		$user_software = esc_attr($_SERVER['SERVER_SOFTWARE']);
+		
 		$opcode_cache  = array(
 			'Apc'       => function_exists( 'apc_cache_info' ) ? 'Yes' : 'No',
 			'Memcached' => class_exists( 'eaccelerator_put' ) ? 'Yes' : 'No',
@@ -70,8 +69,8 @@ class Basic_Info_Tool_Core {
 			'PHP Version'                 => $php,
 			'MySQL Version'               => $mysql,
 			'JQuery Version'			  => $wp_scripts->registered['jquery']->ver,
-			'Server Software'             => esc_attr( $serverSware),
-			'Your User Agent'             => esc_attr( $serverAgnt),
+			'Server Software'             => esc_attr( $user_software ),
+			'Your User Agent'             => esc_attr( $user_browser ),
 			'Session Save Path'           => session_save_path(),
 			'Session Save Path Exists'    => ( file_exists( session_save_path() ) ? 'Yes' : 'No' ),
 			'Session Save Path Writeable' => ( is_writable( session_save_path() ) ? 'Yes' : 'No' ),
