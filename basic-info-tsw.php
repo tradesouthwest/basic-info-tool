@@ -54,4 +54,4 @@ class Basic_Info_Tool{
 
 } //class ends here
 
-Basic_Info_Tsw::get_instance(); 
+Basic_Info_Tool::get_instance(); 
