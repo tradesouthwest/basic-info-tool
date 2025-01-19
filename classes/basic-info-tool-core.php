@@ -49,10 +49,10 @@ class Basic_Info_Tool_Core {
 		$theme         = wp_get_theme( $stylesheet );
 		$theme_name    = $theme->get( 'Name' );
 		$theme_version = $theme->get( 'Version' );
-		$serverSware   = isset($_SERVER['SERVER_SOFTWARE']) 
-						? wp_unslash(esc_attr($_SERVER['SERVER_SOFTWARE'])) : "undefined";
-		$serverAgnt    = isset($_SERVER['HTTP_USER_AGENT']) 
-						? wp_unslash(esc_attr($_SERVER['HTTP_USER_AGENT'])) : "undefined";
+		$serverSware   = isset( wp_unslash( esc_attr($_SERVER['SERVER_SOFTWARE']) ))
+						? wp_unslash( esc_attr($_SERVER['SERVER_SOFTWARE'])) : esc_html('undefined');
+		$serverAgnt    = isset( wp_unslash( esc_attr($_SERVER['HTTP_USER_AGENT']) ))
+						? wp_unslash( esc_attr($_SERVER['HTTP_USER_AGENT'])) : esc_html('undefined');
 		$opcode_cache  = array(
 			'Apc'       => function_exists( 'apc_cache_info' ) ? 'Yes' : 'No',
 			'Memcached' => class_exists( 'eaccelerator_put' ) ? 'Yes' : 'No',
