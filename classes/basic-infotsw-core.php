@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class Basic_Info_Tsw_Core {
+class Basic_Info_Tool_Core {
 
 	/**
 	 * Return an array of plugin names and versions
@@ -108,7 +108,7 @@ class Basic_Info_Tsw_Core {
 			'WordPress Version'     => $wp_version,
 			'PHP Version'           => phpversion(),
 			'MySQL Version'         => $wpdb->db_version(),
-			'WP_DEBUG'              => WP_DEBUG,
+			'WP_DEBUG'              => ( !defined ( WP_DEBUG ) ) ? 'false' : WP_DEBUG,
 		);
 		if ( $html ) {
 			$html = '';
