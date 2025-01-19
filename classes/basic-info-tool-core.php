@@ -41,10 +41,16 @@ class Basic_Info_Tool_Core {
 	 */
 	public static function basic_debug_info( $html = true ) {
 		global $wp_version, $wpdb, $wp_scripts;
-		$servagent   = ( ''!=( sanitize_key( $_SERVER['HTTP_USER_AGENT']))) 
-						? wp_unslash( sanitize_key( $_SERVER['HTTP_USER_AGENT'])) : null; 
-		$servsoft    = ( ''!=( sanitize_key( $_SERVER['SERVER_SOFTWARE']))) 
-						? wp_unslash( sanitize_key( $_SERVER['SERVER_SOFTWARE'])) : null; 
+		if (isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			$servagent   = wp_unslash( sanitize_key( $_SERVER['HTTP_USER_AGENT'] ) ); 
+			} else {  
+			$servagent   = null; 
+		}
+		if( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
+			$servsoft    = wp_unslash( sanitize_key( $_SERVER['SERVER_SOFTWARE'] ) );
+	    	} else {
+			$servsoft    = null; 
+		} 
 		$wp          = $wp_version;
 		$php         = phpversion();
 		$mysql       = $wpdb->db_version();
