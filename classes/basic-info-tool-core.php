@@ -66,8 +66,10 @@ class Basic_Info_Tool_Core {
 			'PHP Version'                 => $php,
 			'MySQL Version'               => $mysql,
 			'JQuery Version'			  => $wp_scripts->registered['jquery']->ver,
-			'Server Software'             => ( isset(  $_SERVER['SERVER_SOFTWARE'] ) ) ? wp_unslash( esc_attr( $_SERVER['SERVER_SOFTWARE'])) : 'undetected',
-			'Your User Agent'             => ( isset( $_SERVER['HTTP_USER_AGENT'] )) ? wp_unslash( esc_attr( $_SERVER['HTTP_USER_AGENT'])) : 'undetected',
+			'Server Software'             => ( isset( esc_url_raw( $_SERVER['SERVER_SOFTWARE'] ) ) )
+											? esc_attr( wp_unslash( $_SERVER['SERVER_SOFTWARE'])) : 'undetected',
+			'Your User Agent'             => ( isset( esc_url_raw( $_SERVER['HTTP_USER_AGENT'] ) ) ) 
+											? esc_attr( wp_unslash( $_SERVER['HTTP_USER_AGENT'])) : 'undetected',
 			'Session Save Path'           => session_save_path(),
 			'Session Save Path Exists'    => ( file_exists( session_save_path() ) ? 'Yes' : 'No' ),
 			'Session Save Path Writeable' => ( is_writable( session_save_path() ) ? 'Yes' : 'No' ),
