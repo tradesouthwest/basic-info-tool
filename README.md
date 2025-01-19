@@ -1,4 +1,4 @@
-![TSW Basic Info Toll logo](bit-banner-1544x-500.png)
+![TSW Basic Info Toll logo](bit-banner-1544x-500.png "basic info banner")
 
 # Basic Info Tool
 
