@@ -49,8 +49,12 @@ class Basic_Info_Tool_Core {
 		$theme         = wp_get_theme( $stylesheet );
 		$theme_name    = $theme->get( 'Name' );
 		$theme_version = $theme->get( 'Version' );
-		$user_browser  = wp_unslash(esc_attr($_SERVER['HTTP_USER_AGENT']))??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
-		$user_software = wp_unslash(esc_attr($_SERVER['SERVER_SOFTWARE']))??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+		$user_browser  = wp_unslash(
+							$_SERVER['HTTP_USER_AGENT']) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+							??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+		$user_software = wp_unslash(
+							$_SERVER['SERVER_SOFTWARE']) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+							??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 		
 		$opcode_cache  = array(
 			'Apc'       => function_exists( 'apc_cache_info' ) ? 'Yes' : 'No',
