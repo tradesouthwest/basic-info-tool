@@ -41,13 +41,13 @@ class Basic_Info_Tool_Core {
 	 */
 	public static function basic_debug_info( $html = true ) {
 		global $wp_version, $wpdb, $wp_scripts;
-		if (isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$servagent   = wp_unslash( sanitize_key( $_SERVER['HTTP_USER_AGENT'] ) ); 
+		if (isset( $_SERVER['HTTP_USER_AGENT'] ) ) {  
+			$servagent   = wp_unslash( sanitize_key( $_SERVER['HTTP_USER_AGENT'] ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 			} else {  
 			$servagent   = null; 
 		}
-		if( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$servsoft    = wp_unslash( sanitize_key( $_SERVER['SERVER_SOFTWARE'] ) );
+		if( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {  
+			$servsoft    = wp_unslash( sanitize_key( $_SERVER['SERVER_SOFTWARE'] ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	    	} else {
 			$servsoft    = null; 
 		} 
