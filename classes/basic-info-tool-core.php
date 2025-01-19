@@ -41,6 +41,8 @@ class Basic_Info_Tool_Core {
 	 */
 	public static function basic_debug_info( $html = true ) {
 		global $wp_version, $wpdb, $wp_scripts;
+		$servagent   = if( isset($_SERVER['HTTP_USER_AGENT'])) ? wp_unslash($_SERVER['HTTP_USER_AGENT']) : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$servsoft    = if( isset($_SERVER['SERVER_SOFTWARE'])) ? wp_unslash($_SERVER['SERVER_SOFTWARE']) : null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		$wp          = $wp_version;
 		$php         = phpversion();
 		$mysql       = $wpdb->db_version();
@@ -50,11 +52,11 @@ class Basic_Info_Tool_Core {
 		$theme_name    = $theme->get( 'Name' );
 		$theme_version = $theme->get( 'Version' );
 		$user_browser  = wp_unslash(
-							$_SERVER['HTTP_USER_AGENT']) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-							??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+							esc_attr($servagent)) 
+							?? 'undefined'; 
 		$user_software = wp_unslash(
-							$_SERVER['SERVER_SOFTWARE']) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-							??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+							esc_attr($servsoft))
+							?? 'undefined'; 
 		
 		$opcode_cache  = array(
 			'Apc'       => function_exists( 'apc_cache_info' ) ? 'Yes' : 'No',
