@@ -36,7 +36,7 @@ class Basic_Info_Tool_Core {
 	 * @since 1.0.0
 	 *
 	 * @param bool $html Optional. Return as HTML or not
-	 *
+	 * @param getenv — Gets the value of a single or all environment variables
 	 * @return string
 	 */
 	public static function basic_debug_info( $html = true ) {
@@ -49,8 +49,8 @@ class Basic_Info_Tool_Core {
 		$theme         = wp_get_theme( $stylesheet );
 		$theme_name    = $theme->get( 'Name' );
 		$theme_version = $theme->get( 'Version' );
-		$user_browser  = wp_unslash(esc_attr($_SERVER['HTTP_USER_AGENT'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
-		$user_software = wp_unslash(esc_attr($_SERVER['SERVER_SOFTWARE'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+		$user_browser  = $_SERVER['HTTP_USER_AGENT']??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
+		$user_software = $_SERVER['SERVER_SOFTWARE']??null; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 		
 		$opcode_cache  = array(
 			'Apc'       => function_exists( 'apc_cache_info' ) ? 'Yes' : 'No',
