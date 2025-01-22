@@ -2,13 +2,15 @@
 Contributors: tradesouthwest
 Donate link: https://paypal.me/tradesouthwest
 Tags: php version, version, debug, debug information, tools, developer
+Requires PHP: 7.4
+Requires CP: 2.2
 Requires at least: 4.0
 Tested up to: 6.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Display site information on your WordPress administrator screen to check for what version of PHP is running.
+Display site information on your WordPress administrator screen to check for what version of PHP is running. Tested OK on WP too.
 
 == Description ==
 
@@ -30,7 +32,8 @@ This section describes how to install the plugin and get it working.
 You may go to 'Tools' > 'Debug My Site' to view your WordPress environment debug information.
 
 == Changelog ==
-
+= 1.0.2
+* fix headers
 = 1.0.02 =
 * Initial release
 

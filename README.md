@@ -5,6 +5,7 @@
 - Contributors: tradesouthwest
 - Donate link: https://paypal.me/tradesouthwest
 - Tags: php version, version, debug, debug information, tools, developer
+- Version: 1.0.2
 - Requires at least: 4.9.15
 - Requires PHP:      7.4
 - Requires CP:       2.2
@@ -33,7 +34,8 @@ This section describes how to install the plugin and get it working.
 You may go to 'Tools' > 'Basic Info Tool' to view your WordPress environment debug information.
 
 ### Changelog 
-
+= 1.0.2
+* fix headers
 = 1.0.02 =
 * Initial release
 

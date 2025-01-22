@@ -3,7 +3,9 @@
 * Plugin Name: Basic Info Tool
 * Plugin URI: https://github.com/tradesouthwest/basic-info-tool
 * Description: Display website information on your WordPress administrator screen.
-* Version: 1.0.1
+* Version: 1.0.2
+* Requires PHP: 7.4
+* Requires CP: 2.2
 * Author: Tradesouthwest
 * Author URI: https://classicpress-themes.com
 * Text Domain: basic-info-tool
